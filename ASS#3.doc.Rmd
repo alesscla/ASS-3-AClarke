@@ -7,6 +7,10 @@ output: html_document
 
 Import Nat2021US - January 2021 - Heading Only Excel file 
 
+```{r Nat2021US_January_2021_Headings_Only}
+Nat2021US_January_2021_Headings_Only
+```
+
 Rename the dataset so that it will be easier to work with
 
 ```{r rename dataset}
@@ -55,6 +59,10 @@ Then to remove the mother's with unknown statuses throughout file
 ```{r mothers with unknown statuses removal}
 NatJan2021.Final <- NatJan2021.NoPreHTN[!(NatJan2021.NoPreHTN$`Body Mass Index`=="99.9"|NatJan2021.NoPreHTN$`Gestational Hypertension`=="U"|NatJan2021.NoPreHTN$`Month Prenatal Care Began`=="99"|NatJan2021.NoPreHTN$`Number of Prenatal Visits`=="99"|NatJan2021.NoPreHTN$`WIC Program`=="U"|NatJan2021.NoPreHTN$`Cigarette Recode`=="U"|NatJan2021.NoPreHTN$`Weight Gain`=="99"|NatJan2021.NoPreHTN$`Pre-pregnancy Diabetes`=="U"|NatJan2021.NoPreHTN$`Gestational Diabetes`=="U"|NatJan2021.NoPreHTN$`Hypertension Eclampsia`=="U"|NatJan2021.NoPreHTN$`Infant Living at Time of Report`=="U"|NatJan2021.NoPreHTN$`Mother's Race/Hispanic Origin`=="8"),] 
 NatJan2021.Final
+```
+
+```{r install TinyTeX to save pdf}
+tinytex::install_tinytex()
 ```
 
 
