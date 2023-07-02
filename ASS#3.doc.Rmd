@@ -1,0 +1,63 @@
+---
+title: "ASS#3.doc.Rmd"
+author: "Alecia Clarke"
+date: "2023-07-02"
+output: html_document
+---
+
+Import Nat2021US - January 2021 - Heading Only Excel file 
+
+Rename the dataset so that it will be easier to work with
+
+```{r rename dataset}
+NatJan2021 <- Nat2021US_January_2021_Headings_Only
+NatJan2021
+```
+
+Load the dplyr package to remove multiple columns
+
+```{r library(dplyr)}
+library(dplyr)
+```
+
+Use the dplyr package to remove multiple columns for the desired data to remain
+
+```{r multiple column removal - Step 1}
+NatJan2021.1 <- NatJan2021 %>% select(-c(`Birth Year`, `Birth Month`, `Time of Birth`, `Day of Birth`, `Birth Place`, `Reporting Birth Place`, `Birth Facility Recode`, `Mother's Age Recode 14`))
+NatJan2021.1
+```
+
+```{r multiple column removal - Step 2}
+NatJan2021.2 <- NatJan2021.1 %>% select(-c(`Mother's Age Recode 9`, `Mother's Nativity`, `Residence Status`, `Mother's Race Recode 31`, `Mother's Race Recode 6`, `Mother's Race Recode 15`, `Mother Race Imputed Flag`, `Mother's Hispanic Origin`, `Mother's Hispanic Origin Recode`, `Reporting Mother's Origin`, `Paternity Acknowledged`, `Marital Status`, `Reporting Paternity Acknowledged`, `Mother's Education`, `Reporting Mother's Education`, `Father's Reported Age Used`, `Father's Combined Age`, `Father's Age Recode 11`, `Father's Age Recode 31`, `Father's Age Recode 6`, `Father's Age Recode 15`, `Father's Hispanic Origin`, `Father's Hispanic Origin Recode`, `Reporting Father's Origin`, `Father's Race/ Hispanic Origin`, `Father's Education`, `Reporting Father's Education`, `Prior Birth Now Living`, `Prior Birth Now Dead`, `Prior Other Termination`, `Live Birth Order Recode`, `Total Birth Order Recode`, `Interval Since Last Live Birth Recode`, `Interval Since Last Live Birth Recode 11`, `Interval Since Last Other Pregnancy Recode`, `Interval Since Last Other Pregnancy Recode 11`, `Interval Since Last Pregnancy Recode`, `Interval Since Last Pregnancy Recode 11`, `Reporting Month Prenatal Care Began`, `Month Prenatal Care Began Recode`, `Number of Prenatal Visits Recode`, `Reporting Total Prenatal Care Visits`, `Reporting WIC Program`, `Cigarettes Before Pregnancy`, `Cigarettes 1st Trimester`, `Cigarettes 2nd Trimester`, `Cigarettes 3rd Trimester`, `Cigarettes Before Pregnancy Recode`, `Cigarettes 1st Trimester Recode`, `Cigarettes 2nd Trimester Recode`, `Cigarettes 3rd Trimester Recode`, `Reporting Cigarettes Before Pregnancy`, `Reporting Cigarettes 1st Trimester`, `Reporting Cigarettes 2nd Trimester`, `Reporting Cigarettes 3rd Trimester`, `Reporting Tobacco Use`, `Mother's Height (in Inches)`, `Reporting Mother's Height`))
+NatJan2021.2
+```
+
+```{r multiple column removal - Step 3}
+NatJan2021.3 <- NatJan2021.2 %>% select(-c(`Body Mass Index Recode`, `Pre-pregnancy Weight Recode (in Pounds)`, `Reporting Pre-pregnancy Weight`, `Delivery Weight Recode`, `Reporting Delivery Weight`, `Weight Gain Recode`, `Reporting Weight Gain`, `Previous Preterm Birth`, `Reporting Pre-pregnancy Diabetes`, `Reporting Gestational Diabetes`, `Reporting Pre-pregnancy Hypertension`, `Reporting Gestational Hypertension`, `Reporting Hypertension Eclampsia`, `Reporting Previous Preterm Birth`, `Infertility Treatment Used`, `Fertility Enhancing Drugs`, `Asst. Reproductive Technology`, `Reporting Infertility Treatment Used`, `Reporting Fertility Enhancing Drugs`, `Reporting Asst. Reproductive Technology`, `Previous Cesarean`, `Number of Previous Cesarean`, `Reporting Previous Cesarean`, `Reporting Number of Previous Cesarean`, `No Risk Factors Reported`, Gonorrhea, Syphilis, Chlamydia, `Hepatitis B`, `Hepatitis C`, `Reporting Gonorrhea`, `Reporting Syphilis`, `Reporting Chlamydia`, `Reporting Hepatitis B`, `Reporting Hepatitis C`, `No Infections Reported`, `Successful External Cephalic Version`, `Failed External Cephalic Version`, `Reporting Successful External Cephalic Version`, `Reporting Failed External Cephalic Version`, `Induction of Labor`, `Augmentation of Labor`, Steroids, Antibiotics, Chorioamnionitis, Anesthesia, `Reporting Induction of Labor`, `Reporting Augmentation of Labor`, `Reporting Steroids`, `Reporting Antibiotics`, `Reporting Chorioamnionitis`, `Reporting Anesthesia`, `No Characteristics of Labor Reported`, `Fetal Presentation at Delivery`, `Final Route & Method of Delivery`, `Trial of Labor Attempted (if Cesarean)`, `Reporting Fetal Presentation at Delivery`, `Reporting Final Route & Method of Delivery`, `Reporting Trial of Labor Attempted (if Cesarean)`, `Delivery Method Recode 6`, `Delivery Method Recode 2`, `Reporting Method of Delivery Recode`, `Maternal Transfusion`, `Perineal Laceration`, `Ruptured Uterus`, `Unplanned Hysterectomy`, `Admit to Intensive Care`, `Reporting Maternal Transfusion`, `Reporting Perineal Laceration`, `Reporting Ruptured Uterus`, `Reporting Unplanned Hysterectomy`, `Reporting Admit to Intensive Care`, `No Maternal Morbidity Reported`, `Attendant at Birth`, `Mother Transferred`, `Payment Source for Delivery`, `Payment Recode`, `Reporting Source of Payment`, `Reporting Payment Recode`, `Five Minute APGAR Score`, `Five Minute APGAR Score Recode`, `Reporting Five Minute APGAR Score`, `Ten Minute APGAR Score`, `Ten Minute APGAR Score Recode`, `Set Order Recode`, `Sex of Infant`, `Last Normal Menses Month`, `Last Normal Menses Year`, `Combined Gestation (Weeks)`, `Combined Gestation Recode 10`, `Combined Gestation Recode 3`, `Obstetric Estimate Edited`, `Obstetric Estimate Recode 10`, `Obstetric Estimate Recode 3`, `Birth Weight Recode 12`, `Birth Weight Recode 4`))
+NatJan2021.3
+```
+
+
+```{r multiple column removal - Step Final Column}
+NatJan2021.FC <- NatJan2021.3 %>% select(-c(`Assisted Ventilation (immediately)`, `Assisted Ventilation >6hrs`, `Admission to NICU`, Surfactant, `Antibiotics for Newborn`, Seizures, `Reporting Assisted Ventilation (immediately)`, `Reporting Assisted Ventilation >6hrs`, `Reporting Admission to NICU`, `Reporting Surfactant`, `Reporting Antibiotics for Newborn`, `Reporting Seizures`, `No Abnormal Conditions Checked`, Anencephaly, `Meningomyelocele /Spina Bifida`, `Cyanotic Congenital Heart Disease`, `Congenital Diaphragmatic Hernia`, Omphalocele, Gastroschisis, `Reporting Anencephaly`, `Reporting Meningomyelocele /Spina Bifida`, `Reporting Cyanotic Congenital Heart Disease`, `Reporting Congenital Diaphragmatic Hernia`, `Reporting Omphalocele`, `Reporting Gastroschisis`, `Limb Reduction Defect`, `Cleft Lip w/ or w/o Cleft Palate`, `Cleft Palate Alone`, `Down Syndrome`, `Suspected Chromosomal Disorder`, Hypospadias, `Reporting Limb Reduction Defect`, `Reporting Cleft Lip w/ or w/o Cleft Palate`, `Reporting Cleft Palate Alone`, `Reporting Down Syndrome`, `Reporting Suspected Chromosomal Disorder`, `Reporting Hypospadias`, `No Congenital Anomalies Checked`, `Infant Transferred`, `Infant Breastfed at Discharge`, `Reporting Breastfed at Discharge`))
+NatJan2021.FC
+```
+
+Now to remove the pre-pregnancy hypertensive mothers (Rows with Y or U)
+
+```{r pre-pregnancy hypertensive mothers removal}
+NatJan2021.NoPreHTN <- NatJan2021.FC[!(NatJan2021.FC$`Pre-pregnancy Hypertension`=="Y"|NatJan2021.FC$`Pre-pregnancy Hypertension`=="U"),] 
+NatJan2021.NoPreHTN
+```
+
+Then to remove the mother's with unknown BMI (Rows with U)
+
+```{r mothers with unknown BMI removal}
+NatJan2021.Final <- NatJan2021.NoPreHTN[!(NatJan2021.NoPreHTN$`Body Mass Index`=="99.9"),] 
+NatJan2021.Final
+```
+
+
+
+
+
