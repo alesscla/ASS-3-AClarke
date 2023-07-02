@@ -2,7 +2,7 @@
 title: "ASS#3.doc.Rmd"
 author: "Alecia Clarke"
 date: "2023-07-02"
-output: pdf_document
+output: html_document
 ---
 
 Import Nat2021US - January 2021 - Heading Only Excel file 
