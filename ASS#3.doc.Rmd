@@ -50,14 +50,14 @@ NatJan2021.NoPreHTN <- NatJan2021.FC[!(NatJan2021.FC$`Pre-pregnancy Hypertension
 NatJan2021.NoPreHTN
 ```
 
-Then to remove the mother's with unknown BMI (Rows with U)
+Then to remove the mother's with unknown statuses throughout file
 
-```{r mothers with unknown BMI removal}
-NatJan2021.Final <- NatJan2021.NoPreHTN[!(NatJan2021.NoPreHTN$`Body Mass Index`=="99.9"),] 
+```{r mothers with unknown statuses removal}
+NatJan2021.Final <- NatJan2021.NoPreHTN[!(NatJan2021.NoPreHTN$`Body Mass Index`=="99.9"|NatJan2021.NoPreHTN$`Gestational Hypertension`=="U"|NatJan2021.NoPreHTN$`Month Prenatal Care Began`=="99"|NatJan2021.NoPreHTN$`Number of Prenatal Visits`=="99"|NatJan2021.NoPreHTN$`WIC Program`=="U"|NatJan2021.NoPreHTN$`Cigarette Recode`=="U"|NatJan2021.NoPreHTN$`Weight Gain`=="99"|NatJan2021.NoPreHTN$`Pre-pregnancy Diabetes`=="U"|NatJan2021.NoPreHTN$`Gestational Diabetes`=="U"|NatJan2021.NoPreHTN$`Hypertension Eclampsia`=="U"|NatJan2021.NoPreHTN$`Infant Living at Time of Report`=="U"|NatJan2021.NoPreHTN$`Mother's Race/Hispanic Origin`=="8"),] 
 NatJan2021.Final
 ```
 
 
-
+The dataset is finally ready for analysis
 
 
