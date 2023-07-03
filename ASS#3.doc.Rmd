@@ -2,7 +2,7 @@
 title: "ASS#3.doc.Rmd"
 author: "Alecia Clarke"
 date: "2023-07-02"
-output: html_document
+output: pdf_document
 ---
 
 Import Nat2021US - January 2021 - Heading Only Excel file 
@@ -63,7 +63,19 @@ NatJan2021.Final <- NatJan2021.NoPreHTN[!(NatJan2021.NoPreHTN$`Body Mass Index`=
 NatJan2021.Final
 ```
 
-
 The dataset is finally ready for analysis
 
+Export the NatJan2021.Final file as an Excel file using the openxlsx package (must be installed if not)
 
+
+```{r run openxlsx package}
+library(openxlsx)
+```
+
+Write the code for the location the NatJan2021.Final Excel file should be saved for future use
+
+```{r Written code for NatJan2021.Final Excel export file}
+write.xlsx(NatJan2021.Final, "/Users/Aleci/NatJan2021.Final.xlsx")
+```
+
+The file was found and moved to the worksheet containing the raw data. This Rmd file will also be included.

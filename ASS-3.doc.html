@@ -592,6 +592,14 @@ NatJan2021.Final</code></pre>
 ## #   `Pre-pregnancy Diabetes` &lt;chr&gt;, `Gestational Diabetes` &lt;chr&gt;,
 ## #   `Pre-pregnancy Hypertension` &lt;chr&gt;, `Gestational Hypertension` &lt;chr&gt;, …</code></pre>
 <p>The dataset is finally ready for analysis</p>
+<p>Export the NatJan2021.Final file as an Excel file using the openxlsx
+package (must be installed if not)</p>
+<pre class="r"><code>library(openxlsx)</code></pre>
+<p>Write the code for the location the NatJan2021.Final Excel file
+should be saved for future use</p>
+<pre class="r"><code>write.xlsx(NatJan2021.Final, &quot;/Users/Aleci/NatJan2021.Final.xlsx&quot;)</code></pre>
+<p>The file was found and moved to the worksheet containing the raw
+data. This Rmd file will also be included.</p>
 
 
 
